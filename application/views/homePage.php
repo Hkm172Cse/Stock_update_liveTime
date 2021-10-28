@@ -87,7 +87,7 @@
                                 }
                                 setTimeout(function(){
 
-                                    window.location.href = "http://localhost/Stock/gohome"
+                                    window.location.href = "http://localhost/Stock_update_liveTime/gohome"
                                
                                 },2000)
                                     
