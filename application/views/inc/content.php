@@ -93,6 +93,27 @@
         </a>
       </div>
     </div>
+
+    <div class="row ml-1 col-12 col-ms-12">
+      <div class="col-6">
+        <a href="">
+        <div class="card">
+          <div class="card-body">
+          <span class="font-weight-bold">#today Sale</span>
+          </div>
+        </div>
+        </a>
+      </div>
+      <div class="col-6">
+        <a href="">
+        <div class="card">
+          <div class="card-body">
+            
+          </div>
+        </div>
+        </a>
+      </div>
+    </div>
                <!-- Button trigger modal -->
     
                 <!--//////////////////////////////////////////////-->
