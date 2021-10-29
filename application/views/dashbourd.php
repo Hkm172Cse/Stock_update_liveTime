@@ -99,8 +99,77 @@
     <?php echo $footer_src;?>
     <script>
     var product_Id;
-    var stock;
+    var stock;                         
+    //Buy Price Select function
+    function totalBuy(){
+      let today = new Date();
+      let date = today.getDate();
+              
+      let month = today.getMonth();
+      let currentM = month + 1;
+      let year =today.getFullYear();
+      var actualDate = `${year}-${currentM < 10 ?'0':''}${currentM}-${date<10 ? '0':''}${date}`;
+      
+      console.log(actualDate);
+      $.ajax({
+        url:"<?php echo base_url()?>select_buy_sale",
+        type:"post",
+        dataType:"json",
+        data:{
+          created:actualDate
+        },
+        success: function(data){
+          console.log(data);
+          let totalbuy=0;
+          for(key in data){
+            totalbuy += parseInt(data[key]['buy_price']);
+          }
+          $('#buy_price_today').html("Total stockPrice = "+totalbuy);
+          $('#stockPrice').val(totalbuy);
+          stockCal = totalbuy;
+        }
+      })
+    }
 
+    totalBuy();
+
+    // Sale Price Select Function 
+    function totalSale(){
+      let today = new Date();
+      let date = today.getDate();
+              
+      let month = today.getMonth();
+      let currentM = month + 1;
+      let year =today.getFullYear();
+      var actualDate = `${year}-${currentM < 10 ?'0':''}${currentM}-${date<10 ? '0':''}${date}`;
+      
+      console.log(actualDate);
+      $.ajax({
+        url:"<?php echo base_url()?>select_sale_for_profit",
+        type:"post",
+        dataType:"json",
+        data:{
+          created:actualDate
+        },
+        success: function(data){
+          console.log(data);
+          let totalsale=0;
+          for(key in data){
+            totalsale += parseInt(data[key]['payment']);
+          }
+          $('#sale_price_today').html("Total SalePrice = "+totalsale);
+          $('#salePrice').val(totalsale);
+        },
+        error:function(data){
+          console.log(data);
+        }
+      })
+    } 
+
+    totalSale();
+
+  
+   
     //DISCOUNT FUNCTION
     
     function discount(customarName,phone){
@@ -351,6 +420,7 @@
         var price = $('#price').val();
         var quantity = $('#quantity').val();
         var todat_price = saleprice*quantity;
+        var buy_price = price*quantity;
         var checkStock = stock - quantity;
         console.log(checkStock);
 
@@ -397,6 +467,7 @@
                     brand:brand,
                     product_name:name,
                     price:price,
+                    buy_price:buy_price,
                     quantity:quantity,
                     sale_price:todat_price
                   },

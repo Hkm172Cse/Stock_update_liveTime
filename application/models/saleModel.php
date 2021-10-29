@@ -121,6 +121,16 @@
                 return $this->db->update('table_sale', $data, array('id' => $data['id'])); 
         }
 
+        public function select_buy_price($today){
+                $query = $this->db->query("select buy_price from table_sale WHERE created LIKE '%$today%' order by id DESC");
+                return $query->result();
+        }
+
+        public function xx($today){
+                $query = $this->db->query("select payment from table_customer WHERE created LIKE '%$today%'");
+                return $query->result();
+        }
+
 }
 
 

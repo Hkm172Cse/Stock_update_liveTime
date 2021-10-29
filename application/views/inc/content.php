@@ -96,13 +96,16 @@
 
     <div class="row ml-1 col-12 col-ms-12">
       <div class="col-6">
-        <a href="">
+        
         <div class="card">
           <div class="card-body">
-          <span class="font-weight-bold">#today Sale</span>
+          <span id="buy_price_today" class="font-weight-bold"></span> <br>
+          <input type="number" id="stockPrice">
+          <span id="sale_price_today" class="font-weight-bold"></span>
+          <input type="number" id="salePrice">
           </div>
         </div>
-        </a>
+        
       </div>
       <div class="col-6">
         <a href="">
