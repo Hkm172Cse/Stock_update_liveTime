@@ -148,105 +148,26 @@
               var i = 0;
               var sum = 0;
               var sum2 = 0;
-              for(key in saleV,stockV){
-               sum += parseInt(data.stockValue[i].buy_price)
-               sum2 += parseInt(data.saleValue[i].payment)
+              for(key in stockV,saleV){
+                if(i<stockV.length){
+                  sum += parseInt(data.stockValue[i].buy_price)
+                }
+               if(i<saleV.length){
+                sum2 += parseInt(data.saleValue[i].payment)
+               }
+               
                 i++;
               }
               console.log(sum);
               console.log(sum2)
             }
-            // let totalbuy=0;
-            // let totalSale = 0;
-            // var i = 0;
-            // for(key in stockV){
-            //   totalbuy += parseInt(data.stockValue[i].buy_price);
-            //   totalSale += parseInt(data.saleV[i].payment);
-            //   i++;
-            // }
-            // console.log(totalbuy);
-            //console.log(totalSale);
+            
           }
         })
     }
 
     profit();
 
-
-    
-    //   function totalBuy(){
-    //     let today = new Date();
-    //     let date = today.getDate();
-                
-    //     let month = today.getMonth();
-    //     let currentM = month + 1;
-    //     let year =today.getFullYear();
-    //     var actualDate = `${year}-${currentM < 10 ?'0':''}${currentM}-${date<10 ? '0':''}${date}`;
-        
-    //     console.log(actualDate);
-    //     $.ajax({
-    //       url:"<?php echo base_url()?>select_buy_sale",
-    //       type:"post",
-    //       dataType:"json",
-    //       data:{
-    //         created:actualDate
-    //       },
-    //       success: function(data){
-    //         console.log(data);
-    //         let totalbuy=0;
-    //         for(key in data){
-    //           totalbuy += parseInt(data[key]['buy_price']);
-    //         }
-    //         $('#buy_price_today').html("Total stockPrice = "+totalbuy);
-    //         $('#stockPrice').val(totalbuy);
-    //         stockCal = totalbuy;
-    //       }
-    //     })
-    // }
-
-    // totalBuy();
-    // // Sale Price Select Function
-    //   function totalSale(){
-    //     let today = new Date();
-    //     let date = today.getDate();
-                
-    //     let month = today.getMonth();
-    //     let currentM = month + 1;
-    //     let year =today.getFullYear();
-    //     var actualDate = `${year}-${currentM < 10 ?'0':''}${currentM}-${date<10 ? '0':''}${date}`;
-        
-    //     console.log(actualDate);
-    //     $.ajax({
-    //       url:"<?php echo base_url()?>select_sale_for_profit",
-    //       type:"post",
-    //       dataType:"json",
-    //       data:{
-    //         created:actualDate
-    //       },
-    //       success: function(data){
-    //         console.log(data);
-    //         let totalsale=0;
-    //         for(key in data){
-    //           totalsale += parseInt(data[key]['payment']);
-    //         }
-    //         $('#sale_price_today').html("Total SalePrice = "+totalsale);
-    //         $('#salePrice').val(totalsale);
-    //         saleCal = totalsale;
-    //       },
-    //       error:function(data){
-    //         console.log(data);
-    //       }
-    //     })
-    // } 
-    // totalSale();
-    // var profit = 0;
-    // setTimeout(function(){
-    //   console.log(stockCal);
-    //   console.log(saleCal);
-    //   profit = saleCal-stockCal;
-    //   console.log(profit);
-    // },500)
-   
     //DISCOUNT FUNCTION
     
     function discount(customarName,phone){
