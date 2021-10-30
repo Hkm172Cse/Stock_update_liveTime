@@ -192,5 +192,14 @@ class salesController extends CI_Controller {
 		}
 	}
 
+	public function profitMethod(){
+		if($this->input->is_ajax_request()){
+			$today = $this->input->post('created');
+			$data['stockValue'] = $this->saleModel->select_buy_price($today);
+			$data['saleValue'] = $this->saleModel->xx($today);
+			echo json_encode($data);
+		}
+	}
+
 	
 }
