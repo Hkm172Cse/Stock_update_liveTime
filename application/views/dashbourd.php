@@ -124,18 +124,47 @@
             console.log(data);
             var stockV = data.stockValue;
             var saleV = data.saleValue;
+            console.log(stockV.length)
+            console.log(saleV.length);
             if(stockV.length > saleV.length){
-
+              var i = 0;
+              var sum = 0;
+              var sum2 = 0;
+              for(key in saleV,stockV){
+                if(i<saleV.length){
+                  sum2 += parseInt(data.saleValue[i].payment)
+                }
+                if(i<stockV.length){
+                  sum += parseInt(data.stockValue[i].buy_price)
+                }
+               
+               
+                i++;
+              }
+              console.log(sum);
+              console.log(sum2)
             }
-            let totalbuy=0;
-            let totalSale = 0;
-            var i = 0;
-            for(key in stockV){
-              totalbuy += parseInt(data.stockValue[i].buy_price);
-              totalSale += parseInt(data.saleV[i].payment);
-              i++;
+            else if(stockV.lenght < saleV.length){
+              var i = 0;
+              var sum = 0;
+              var sum2 = 0;
+              for(key in saleV,stockV){
+               sum += parseInt(data.stockValue[i].buy_price)
+               sum2 += parseInt(data.saleValue[i].payment)
+                i++;
+              }
+              console.log(sum);
+              console.log(sum2)
             }
-            console.log(totalbuy);
+            // let totalbuy=0;
+            // let totalSale = 0;
+            // var i = 0;
+            // for(key in stockV){
+            //   totalbuy += parseInt(data.stockValue[i].buy_price);
+            //   totalSale += parseInt(data.saleV[i].payment);
+            //   i++;
+            // }
+            // console.log(totalbuy);
             //console.log(totalSale);
           }
         })
