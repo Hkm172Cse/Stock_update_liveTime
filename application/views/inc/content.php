@@ -97,12 +97,9 @@
     <div class="row ml-1 col-12 col-ms-12">
       <div class="col-6">
         
-        <div class="card">
+        <div class="card gradient-2">
           <div class="card-body">
-          <span id="buy_price_today" class="font-weight-bold"></span> <br>
-          <input type="number" id="stockPrice">
-          <span id="sale_price_today" class="font-weight-bold"></span>
-          <input type="number" id="salePrice">
+             <p id="profitId" class="font-weight-bold"></p>
           </div>
         </div>
         

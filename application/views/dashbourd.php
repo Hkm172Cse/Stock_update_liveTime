@@ -128,38 +128,65 @@
             console.log(saleV.length);
             if(stockV.length > saleV.length){
               var i = 0;
-              var sum = 0;
-              var sum2 = 0;
+              var todayStockPrice = 0;
+              var todayTotalSale = 0;
               for(key in saleV,stockV){
                 if(i<saleV.length){
-                  sum2 += parseInt(data.saleValue[i].payment)
+                  todayTotalSale += parseInt(data.saleValue[i].payment)
                 }
                 if(i<stockV.length){
-                  sum += parseInt(data.stockValue[i].buy_price)
+                  todayStockPrice += parseInt(data.stockValue[i].buy_price)
                 }
                
                
                 i++;
               }
-              console.log(sum);
-              console.log(sum2)
+              console.log(todayStockPrice)
+              console.log(todayTotalSale)
+
+              var profitToday = todayTotalSale - todayStockPrice;
+              $('#profitId').html("# Today Profit = "+profitToday);
+              console.log(profitToday);
             }
-            else if(stockV.lenght < saleV.length){
+            else if(stockV.length < saleV.length){
               var i = 0;
-              var sum = 0;
-              var sum2 = 0;
+              var todayStockPrice = 0;
+              var todayTotalSale = 0;
               for(key in stockV,saleV){
                 if(i<stockV.length){
-                  sum += parseInt(data.stockValue[i].buy_price)
+                  todayStockPrice += parseInt(data.stockValue[i].buy_price)
                 }
                if(i<saleV.length){
-                sum2 += parseInt(data.saleValue[i].payment)
+                todayTotalSale += parseInt(data.saleValue[i].payment)
                }
                
                 i++;
               }
-              console.log(sum);
-              console.log(sum2)
+              console.log(todayStockPrice)
+              console.log(todayTotalSale)
+
+              var profitToday = todayTotalSale - todayStockPrice;
+              $('#profitId').html("# Today Profit = "+profitToday);
+              console.log(profitToday);
+            }
+            else if(stockV.length == saleV.length){
+              var i = 0;
+              var todayStockPrice = 0;
+              var todayTotalSale = 0;
+              for(key in stockV,saleV){
+                
+                  todayStockPrice += parseInt(data.stockValue[i].buy_price)
+                  todayTotalSale += parseInt(data.saleValue[i].payment)
+                
+               
+                i++;
+              }
+              console.log(todayStockPrice)
+              console.log(todayTotalSale)
+
+              var profitToday = todayTotalSale - todayStockPrice;
+              $('#profitId').html("# Today Profit = "+profitToday);
+              console.log(profitToday);
             }
             
           }
