@@ -124,16 +124,19 @@
             console.log(data);
             var stockV = data.stockValue;
             var saleV = data.saleValue;
-            // if(stockV.length > saleV.length){
+            if(stockV.length > saleV.length){
 
-            // }
+            }
             let totalbuy=0;
+            let totalSale = 0;
             var i = 0;
-            for(key in saleV,stockV){
-              totalbuy +=parseInt(data.stockValue[i].buy_price);
+            for(key in stockV){
+              totalbuy += parseInt(data.stockValue[i].buy_price);
+              totalSale += parseInt(data.saleV[i].payment);
               i++;
             }
             console.log(totalbuy);
+            //console.log(totalSale);
           }
         })
     }
