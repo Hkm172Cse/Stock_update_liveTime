@@ -122,10 +122,18 @@
           },
           success: function(data){
             console.log(data);
+            var stockV = data.stockValue;
+            var saleV = data.saleValue;
+            // if(stockV.length > saleV.length){
+
+            // }
             let totalbuy=0;
-            for(key in data){
-              data.stockValue
+            var i = 0;
+            for(key in saleV,stockV){
+              totalbuy +=parseInt(data.stockValue[i].buy_price);
+              i++;
             }
+            console.log(totalbuy);
           }
         })
     }
