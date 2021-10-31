@@ -95,24 +95,28 @@
     </div>
 
     <div class="row ml-1 col-12 col-ms-12">
-      <div class="col-6">
+      <div class="col-12">
         
         <div class="card gradient-2">
           <div class="card-body">
-             <p id="profitId" class="font-weight-bold"></p>
+            
+             <table class="table">
+               <thead>
+                  <th>Today</th>
+                  <th> C.Month</th>
+                  <th>P.Month</th>
+               </thead>
+               <tbody>
+                 <td><button id="profitId" class="btn btn-sm btn-warning"></button></td>
+                 <td><button id="c_month_profit" class="btn btn-sm btn-danger"></button></td>
+                 <td><button id="pre_month_profit" class="btn btn-sm btn-primary"></button></td>
+               </tbody>
+             </table>
           </div>
         </div>
         
       </div>
-      <div class="col-6">
-        <a href="">
-        <div class="card">
-          <div class="card-body">
-            
-          </div>
-        </div>
-        </a>
-      </div>
+      
     </div>
                <!-- Button trigger modal -->
     
