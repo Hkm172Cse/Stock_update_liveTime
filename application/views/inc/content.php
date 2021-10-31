@@ -99,7 +99,7 @@
         
         <div class="card gradient-2">
           <div class="card-body">
-            
+            <h4 class="text-center bg-success text-white">profit</h4>
              <table class="table">
                <thead>
                   <th>Today</th>
@@ -107,7 +107,7 @@
                   <th>P.Month</th>
                </thead>
                <tbody>
-                 <td><button id="profitId" class="btn btn-sm btn-warning"></button></td>
+                 <td><button id="profitId" class="btn btn-sm btn-warning text-white"></button></td>
                  <td><button id="c_month_profit" class="btn btn-sm btn-danger"></button></td>
                  <td><button id="pre_month_profit" class="btn btn-sm btn-primary"></button></td>
                </tbody>

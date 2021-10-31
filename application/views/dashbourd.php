@@ -16,9 +16,9 @@
             
         <?php echo $content; ?>
          <!-- Button trigger modal -->
-     <button type="button" class="pixedbtn" data-toggle="modal" data-target="#exampleModal"><i class="far fa-plus"></i></button>
+     <button type="button" class="pixedbtn text-white" data-toggle="modal" data-target="#exampleModal"><i class="far fa-plus"></i></button>
      
-     <a href="<?php echo base_url()?>customer_view"><button class="dis_pixedbtn" id="dis_Btn"><i class="fas fa-percent"></i></button></a>
+     <a href="<?php echo base_url()?>customer_view"><button class="dis_pixedbtn text-white" id="dis_Btn"><i class="fas fa-percent"></i></button></a>
                 <!-- Modal -->
                 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                   <div class="modal-dialog">
