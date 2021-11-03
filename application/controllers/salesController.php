@@ -188,5 +188,13 @@ class salesController extends CI_Controller {
 			echo json_encode($data);
 		}
 	}
+
+	public function DueMethod(){
+		if($this->input->is_ajax_request()){
+			$today = $this->input->post('created');
+			$data = $this->saleModel->select_All_due($today);
+			echo json_encode($data);
+		}
+	}
 	
 }

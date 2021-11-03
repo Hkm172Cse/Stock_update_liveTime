@@ -122,9 +122,9 @@
     <div class="row ml-1 col-12 col-ms-12">
       <div class="col-12">
         
-        <div class="card gradient-5">
+        <div class="card gradient-1">
           <div class="card-body">
-            <h4 class="text-center bg-success text-white">Due</h4>
+            <h4 class="text-center bg-danger text-white">Due</h4>
              <table class="table">
                <thead>
                   <th>Today</th>
@@ -132,7 +132,7 @@
                   <th>P.Month</th>
                </thead>
                <tbody>
-                 <td><button id="" class="btn btn-sm btn-warning text-white"></button></td>
+                 <td><button id="today_due" class="btn btn-sm btn-warning text-white"></button></td>
                  <td><button id="" class="btn btn-sm btn-danger"></button></td>
                  <td><button id="" class="btn btn-sm btn-primary"></button></td>
                </tbody>

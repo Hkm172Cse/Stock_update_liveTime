@@ -301,86 +301,118 @@
       
       var actualMonth = `${year}-${currentM < 10 ?'0':''}${currentM}`
       console.log(actualMonth)
-  $.ajax({
-    url:"<?php echo base_url()?>profit",
-    type:"post",
-    dataType:"json",
-    data:{
-      created:actualMonth
-    },
-    success: function(data){
-      console.log(data);
-      let stockV = data.stockValue;
-      let saleV = data.saleValue;
-      console.log(stockV.length)
-      console.log(saleV.length);
-      if(stockV.length > saleV.length){
-        let i = 0;
-        let C_month_StockPrice = 0;
-        let C_month_TotalSale = 0;
-        for(key in saleV,stockV){
-          if(i<saleV.length){
-            C_month_TotalSale += parseInt(data.saleValue[i].payment)
-          }
-          if(i<stockV.length){
-            C_month_StockPrice += parseInt(data.stockValue[i].buy_price)
-          }
-         
-         
-          i++;
-        }
-        console.log(C_month_StockPrice)
-        console.log(C_month_TotalSale)
+        $.ajax({
+          url:"<?php echo base_url()?>profit",
+          type:"post",
+          dataType:"json",
+          data:{
+            created:actualMonth
+          },
+          success: function(data){
+            console.log(data);
+            let stockV = data.stockValue;
+            let saleV = data.saleValue;
+            console.log(stockV.length)
+            console.log(saleV.length);
+            if(stockV.length > saleV.length){
+              let i = 0;
+              let C_month_StockPrice = 0;
+              let C_month_TotalSale = 0;
+              for(key in saleV,stockV){
+                if(i<saleV.length){
+                  C_month_TotalSale += parseInt(data.saleValue[i].payment)
+                }
+                if(i<stockV.length){
+                  C_month_StockPrice += parseInt(data.stockValue[i].buy_price)
+                }
+              
+              
+                i++;
+              }
+              console.log(C_month_StockPrice)
+              console.log(C_month_TotalSale)
 
-        var profit_C_Month = C_month_TotalSale - C_month_StockPrice;
-        $('#pre_month_profit').html(profit_C_Month);
-        console.log(profit_C_Month);
-      }
-      else if(stockV.length < saleV.length){
-        var i = 0;
-        var C_month_StockPrice = 0;
-        var C_month_TotalSale = 0;
-        for(key in stockV,saleV){
-          if(i<stockV.length){
-            C_month_StockPrice += parseInt(data.stockValue[i].buy_price)
+              var profit_C_Month = C_month_TotalSale - C_month_StockPrice;
+              $('#pre_month_profit').html(profit_C_Month);
+              console.log(profit_C_Month);
+            }
+            else if(stockV.length < saleV.length){
+              var i = 0;
+              var C_month_StockPrice = 0;
+              var C_month_TotalSale = 0;
+              for(key in stockV,saleV){
+                if(i<stockV.length){
+                  C_month_StockPrice += parseInt(data.stockValue[i].buy_price)
+                }
+              if(i<saleV.length){
+                C_month_TotalSale += parseInt(data.saleValue[i].payment)
+              }
+              
+                i++;
+              }
+              console.log(C_month_StockPrice)
+              console.log(C_month_TotalSale)
+
+              var profit_C_Month = C_month_TotalSale - C_month_StockPrice;
+              $('#pre_month_profit').html(profit_C_Month);
+              console.log(profit_C_Month);
+            }
+            else if(stockV.length == saleV.length){
+              var i = 0;
+              var C_month_StockPrice = 0;
+              var C_month_TotalSale = 0;
+              for(key in stockV,saleV){
+                
+                C_month_StockPrice += parseInt(data.stockValue[i].buy_price)
+                C_month_TotalSale += parseInt(data.saleValue[i].payment)
+                
+              
+                i++;
+              }
+              console.log(C_month_StockPrice)
+              console.log(C_month_TotalSale)
+
+              var profit_C_Month = C_month_TotalSale - C_month_StockPrice;
+              $('#pre_month_profit').html(profit_C_Month);
+              console.log(profit_C_Month);
+            }
+            
           }
-         if(i<saleV.length){
-          C_month_TotalSale += parseInt(data.saleValue[i].payment)
-         }
-         
-          i++;
-        }
-        console.log(C_month_StockPrice)
-        console.log(C_month_TotalSale)
-
-        var profit_C_Month = C_month_TotalSale - C_month_StockPrice;
-        $('#pre_month_profit').html(profit_C_Month);
-        console.log(profit_C_Month);
-      }
-      else if(stockV.length == saleV.length){
-        var i = 0;
-        var C_month_StockPrice = 0;
-        var C_month_TotalSale = 0;
-        for(key in stockV,saleV){
-          
-          C_month_StockPrice += parseInt(data.stockValue[i].buy_price)
-          C_month_TotalSale += parseInt(data.saleValue[i].payment)
-          
-         
-          i++;
-        }
-        console.log(C_month_StockPrice)
-        console.log(C_month_TotalSale)
-
-        var profit_C_Month = C_month_TotalSale - C_month_StockPrice;
-        $('#pre_month_profit').html(profit_C_Month);
-        console.log(profit_C_Month);
-      }
-      
-    }
-  })
+        })
 }
 profit_pre_Month();
+
+//DUE FUNCTION
+function todayDue(){
+        let today = new Date();
+        let date = today.getDate();
+                
+        let month = today.getMonth();
+        let currentM = month + 1;
+        let year =today.getFullYear();
+        var actualDate = `${year}-${currentM < 10 ?'0':''}${currentM}-${date<10 ? '0':''}${date}`;
+        
+        console.log(actualDate);
+        $.ajax({
+          url:"<?php echo base_url()?>todayDue_dashbourd",
+          type:"post",
+          dataType:"json",
+          data:{
+            created:actualDate
+          },
+          success:function(data){
+            
+            console.log(data);
+            let todayDue = 0;
+            for(key in data){
+              todayDue += parseInt(data[key]['due']);
+            }
+            $('#today_due').html(todayDue);
+          }
+        })
+    }
+
+    todayDue();
 
     //DISCOUNT FUNCTION
     

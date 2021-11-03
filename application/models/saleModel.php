@@ -131,6 +131,11 @@
                 return $query->result();
         }
 
+        public function select_All_due($today){
+                $query = $this->db->query("select due from table_customer WHERE created LIKE '%$today%'");
+                return $query->result();
+        }
+
 }
 
 

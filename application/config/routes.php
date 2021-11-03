@@ -66,7 +66,9 @@ $route['todayDiscount']         = 'discountController/todayDiscount';
 $route['invoice']               = 'salesController/invoice';
 $route['customer_view']         = 'salesController/customer_view';
 
-$route['profit']       = 'salesController/profitMethod';
+$route['profit']                = 'salesController/profitMethod';
+
+$route['todayDue_dashbourd']    = 'salesController/DueMethod';
 
 
 
